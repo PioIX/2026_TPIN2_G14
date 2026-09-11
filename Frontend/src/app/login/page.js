@@ -13,9 +13,16 @@ export default function LoginPage() {
 
     const [EsRegistro, setEsRegistro] = useState(false)
     const [user, setUser] = useState("")
+    const [foto, setFoto] = useState(null)
 
 
+    const onChangefoto = (event) => {
+        const archivo = event.target.files[0]; {
+            setFoto(archivo)
+        }
+    }
     const onChangeMail = (event) => {
+
 
         setMail(event.target.value)
 
@@ -51,11 +58,13 @@ export default function LoginPage() {
             {EsRegistro ? (
                 <div>
                     <p>Usuario</p>
-                    <Input onChange={onChangeUser} placeholder={"Nombre de Usuario"} value={user} type={text} />
+                    <Input onChange={onChangeUser} placeholder={"Nombre de Usuario"} value={user}  />
                     <p>Email</p>
-                    <Input onChange={onChangeMail} placeholder={"email"} value={mail} type={"text"} />
+                    <Input onChange={onChangeMail} placeholder={"email"} value={mail}  />
                     <p>Contraseña</p>
                     <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
+                    <p>Foto de Perfil</p>
+                    <input onChange={onChangefoto} type={"file"} accept="image/*"/>
                     <Button onClick={handleRegister} > Registrarse </Button>
 
                 </div>
@@ -63,7 +72,7 @@ export default function LoginPage() {
                 <div>
 
                     <p>Email</p>
-                    <Input onChange={onChangeMail} placeholder={"email"} value={mail} type={"text"} />
+                    <Input onChange={onChangeMail} placeholder={"email"} value={mail}  />
                     <p>Contraseña</p>
                     <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
                     <Button onClick={handleLogin}>Ingresar</Button>
@@ -72,9 +81,9 @@ export default function LoginPage() {
             )
 
             }
-        <Button onClick={toggleModo}>
-            {EsRegistro ? "Ya tenes cuenta? ingresa" : "Registrate"}
-        </Button>
+            <Button onClick={toggleModo}>
+                {EsRegistro ? "Ya tenes cuenta? ingresa" : "Registrate"}
+            </Button>
 
         </>
     )
