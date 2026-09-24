@@ -17,9 +17,6 @@ const sessionMiddleware = session({
 });
 app.use(sessionMiddleware);
 
-// ---------------------------------------------------------
-// RUTAS HTTP (login, registro, chats)
-// ---------------------------------------------------------
 
 // Registro de usuario
 app.post("/register", async (req, res) => {
@@ -192,9 +189,7 @@ app.get("/chats/:id_chat/mensajes", async (req, res) => {
   }
 });
 
-// ---------------------------------------------------------
-// SERVIDOR Y SOCKET.IO (una sola vez, con persistencia en BD)
-// ---------------------------------------------------------
+//socket 
 
 const server = app.listen(PORT, () => {
   console.log(`Servidor NodeJS corriendo en http://localhost:${PORT}/`);
