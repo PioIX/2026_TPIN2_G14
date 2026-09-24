@@ -1,4 +1,4 @@
-// src/app/chat/[id]/page.js
+
 "use client"
 
 import { useState, useEffect } from "react";
@@ -19,7 +19,7 @@ export default function ChatPage() {
   const [mensajes, setMensajes] = useState([]);
   const [contenido, setContenido] = useState("");
 
-  // b. historial desde la base de datos
+ 
   useEffect(() => {
     fetch(`http://localhost:4000/chats/${idChat}/mensajes`)
       .then((response) => response.json())
@@ -28,7 +28,7 @@ export default function ChatPage() {
       });
   }, [idChat]);
 
-  // a. + e. unirse a la sala y escuchar mensajes nuevos
+
   useEffect(() => {
     if (!socket) return;
 
@@ -43,7 +43,7 @@ export default function ChatPage() {
     setContenido(event.target.value);
   };
 
-  // d. enviar mensaje
+
   const enviarMensaje = () => {
     socket.emit("send_message", {
       id_chat: idChat,
