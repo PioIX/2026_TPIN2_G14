@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+}
+
+.contactos-page {
+  min-height: 100vh;
+  background: #f1f5f9;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+.contactos-container {
+  width: 100%;
+  max-width: 850px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.contactos-header {
+  background: #2563eb;
+  color: white;
+
+  padding: 25px 30px;
+
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+}
+
+.welcome-text {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.contactos-header h1 {
+  margin: 4px 0 0;
+
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: white;
+  color: #2563eb;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 21px;
+  font-weight: 600;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.actions {
+  display: flex;
+  gap: 12px;
+
+  margin: 20px 0;
+}
+
+/*
+  Estos estilos también afectan a los botones
+  que generen tus componentes Popup.
+*/
+
+.actions button {
+  border: none;
+
+  background: white;
+  color: #2563eb;
+
+  padding: 11px 18px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: #2563eb;
+  color: white;
+
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SECCIÓN CHATS
+========================= */
+
+.chats-section {
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title h2 {
+  margin: 0;
+
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.section-title span {
+  min-width: 24px;
+  height: 24px;
+
+  padding: 0 7px;
+
+  border-radius: 12px;
+
+  background: #dbeafe;
+  color: #2563eb;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================
+   LISTA
+========================= */
+
+.chat-list-wrapper {
+  min-height: 150px;
+}
+
+/*
+  Si ChatList utiliza elementos con estas clases,
+  quedan automáticamente estilizados.
+*/
+
+.chat-list-wrapper ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+.chat-list-wrapper li {
+  padding: 16px 24px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+.chat-list-wrapper li:hover {
+  background: #f8fafc;
+}
+
+.chat-list-wrapper li:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  .contactos-page {
+    padding: 15px;
+  }
+
+  .contactos-header {
+    padding: 20px;
+
+    border-radius: 12px;
+  }
+
+  .contactos-header h1 {
+    font-size: 22px;
+  }
+
+  .user-avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .section-title {
+    padding: 16px 18px;
+  }
+
+  .chat-list-wrapper li {
+    padding: 15px 18px;
+  }
+}
