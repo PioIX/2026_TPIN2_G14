@@ -15,12 +15,12 @@ export default function useSocket({ serverUrl = "ws://localhost:4000", options =
 
     const onConnect = () => {
       setIsConnected(true);
-      console.log("✅ WebSocket conectado:", socket.id);
+      console.log(" WebSocket conectado:", socket.id);
     };
 
     const onDisconnect = () => {
       setIsConnected(false);
-      console.log("❌ WebSocket desconectado");
+      console.log(" WebSocket desconectado");
     };
 
     socket.on("connect", onConnect);
