@@ -50,8 +50,8 @@ export default function LoginPage() {
       return response.json().then((data) => {
         if (response.ok) {
           router.push(`/contactos?id=${data.usuario.id_usuario}&nombre=${data.usuario.nombre}`);
-        } else {
-          alert("Error: " + data.message);
+                } else {
+          alert("Error: " + (data.message || data.error));
         }
       });
     });
@@ -66,8 +66,8 @@ export default function LoginPage() {
       return response.json().then((data) => {
         if (response.ok) {
           router.push(`/contactos?id=${data.id_usuario}&nombre=${nombre}`);
-        } else {
-          alert("Error: " + data.message);
+                } else {
+          alert("Error: " + (data.message || data.error));
         }
       });
     });
