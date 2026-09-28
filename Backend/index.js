@@ -49,6 +49,7 @@ app.post("/register", async (req, res) => {
       id_usuario: resultado.insertId
     });
   } catch (error) {
+    console.error("Error en /register:", error);
     res.status(500).send({ error: error.message });
   }
 });
