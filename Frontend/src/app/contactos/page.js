@@ -29,7 +29,7 @@ export default function ContactosPage() {
   }, [idUsuario])
 
   const handleClickChat = (chat) => {
-    router.push(`/chat/${chat.id_chat}?id=${idUsuario}&nombre=${nombreUsuario}`)
+    router.push(`/chat?chatId=${chat.id_chat}&id=${idUsuario}&nombre=${nombreUsuario}`)
   }
 
   return (
