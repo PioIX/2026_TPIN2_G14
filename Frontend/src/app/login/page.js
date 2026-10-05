@@ -4,6 +4,7 @@ import Input from "@/components/Input"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Button from "@/components/Button"
+import styles from "./page.module.css"
 
 export default function LoginPage() {
 
@@ -50,7 +51,7 @@ export default function LoginPage() {
       return response.json().then((data) => {
         if (response.ok) {
           router.push(`/contactos?id=${data.usuario.id_usuario}&nombre=${data.usuario.nombre}`);
-                } else {
+        } else {
           alert("Error: " + (data.message || data.error));
         }
       });
@@ -66,7 +67,7 @@ export default function LoginPage() {
       return response.json().then((data) => {
         if (response.ok) {
           router.push(`/contactos?id=${data.id_usuario}&nombre=${nombre}`);
-                } else {
+        } else {
           alert("Error: " + (data.message || data.error));
         }
       });
@@ -74,34 +75,36 @@ export default function LoginPage() {
   };
 
   return (
-    <>
+    <div className={styles.contenedor}>
       {EsRegistro ? (
-        <div>
-          <p>Nombre</p>
+        <div className={styles.formulario}>
+          <p className={styles.etiqueta}>Nombre</p>
           <Input onChange={onChangeNombre} placeholder={"Nombre"} value={nombre} />
-          <p>Apellido</p>
+          <p className={styles.etiqueta}>Apellido</p>
           <Input onChange={onChangeApellido} placeholder={"Apellido"} value={apellido} />
-          <p>Email</p>
+          <p className={styles.etiqueta}>Email</p>
           <Input onChange={onChangeMail} placeholder={"email"} value={mail} />
-          <p>Contraseña</p>
+          <p className={styles.etiqueta}>Contraseña</p>
           <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
-          <p>Foto de Perfil</p>
+          <p className={styles.etiqueta}>Foto de Perfil</p>
           <input onChange={onChangefoto} type={"file"} accept="image/*" />
           <Button onClick={handleRegister}> Registrarse </Button>
         </div>
       ) : (
-        <div>
-          <p>Email</p>
+        <div className={styles.formulario}>
+          <p className={styles.etiqueta}>Email</p>
           <Input onChange={onChangeMail} placeholder={"email"} value={mail} />
-          <p>Contraseña</p>
+          <p className={styles.etiqueta}>Contraseña</p>
           <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
           <Button onClick={handleLogin}>Ingresar</Button>
         </div>
       )}
 
-      <Button onClick={cambiarModo}>
-        {EsRegistro ? "Ya tenes cuenta? ingresa" : "Registrate"}
-      </Button>
-    </>
+      <div className={styles.cambiarModo}>
+        <Button onClick={cambiarModo}>
+          {EsRegistro ? "Ya tenes cuenta? ingresa" : "Registrate"}
+        </Button>
+      </div>
+    </div>
   )
 }

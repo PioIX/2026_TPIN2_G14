@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
@@ -6,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation"
 import ChatList from "@/components/ChatList"
 import NuevoChatPopUp from "@/components/NuevoChatPopUp"
 import NuevoGrupoPopUp from "@/components/NuevoGrupoPopUp"
+import styles from "./page.module.css"
 
 export default function ContactosPage() {
   const searchParams = useSearchParams()
@@ -33,11 +33,13 @@ export default function ContactosPage() {
   }
 
   return (
-    <div>
-      <h1>Hola, {nombreUsuario}</h1>
+    <div className={styles.contenedor}>
+      <h1 className={styles.titulo}>Hola, {nombreUsuario}</h1>
 
-      <NuevoChatPopUp idUsuario={idUsuario} onChatCreado={cargarChats} />
-      <NuevoGrupoPopUp idUsuario={idUsuario} onGrupoCreado={cargarChats} />
+      <div className={styles.acciones}>
+        <NuevoChatPopUp idUsuario={idUsuario} onChatCreado={cargarChats} />
+        <NuevoGrupoPopUp idUsuario={idUsuario} onGrupoCreado={cargarChats} />
+      </div>
 
       <ChatList chats={chats} onClickChat={handleClickChat} />
     </div>

@@ -1,10 +1,10 @@
-
 "use client"
 
 import { useState, useEffect } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import useSocket from "@/hooks/useSocket";
 import Message from "@/components/Message";
+import styles from "./page.module.css";
 
 export default function ChatPage() {
   const params = useParams();
@@ -19,7 +19,7 @@ export default function ChatPage() {
   const [mensajes, setMensajes] = useState([]);
   const [contenido, setContenido] = useState("");
 
- 
+
   useEffect(() => {
     fetch(`http://localhost:4000/chats/${idChat}/mensajes`)
       .then((response) => response.json())
@@ -54,19 +54,27 @@ export default function ChatPage() {
   };
 
   return (
-    <div>
-      <h1>Chat</h1>
+    <div className={styles.contenedor}>
+      <h1 className={styles.titulo}>Chat</h1>
 
-      {mensajes.map((msg) => (
-        <Message
-          key={msg.id_mensaje}
-          mensaje={msg}
-          esPropio={String(msg.id_usuario) === String(idUsuario)}
+      <div className={styles.mensajes}>
+        {mensajes.map((msg) => (
+          <Message
+            key={msg.id_mensaje}
+            mensaje={msg}
+            esPropio={String(msg.id_usuario) === String(idUsuario)}
+          />
+        ))}
+      </div>
+
+      <div className={styles.barraEnvio}>
+        <input
+          className={styles.input}
+          value={contenido}
+          onChange={onChangeContenido}
         />
-      ))}
-
-      <input value={contenido} onChange={onChangeContenido} />
-      <button onClick={enviarMensaje}>Enviar</button>
+        <button className={styles.boton} onClick={enviarMensaje}>Enviar</button>
+      </div>
     </div>
   );
 }
