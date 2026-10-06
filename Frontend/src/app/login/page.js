@@ -7,7 +7,6 @@ import Button from "@/components/Button"
 import styles from "./page.module.css"
 
 export default function LoginPage() {
-
   const router = useRouter()
   const [mail, setMail] = useState("")
   const [password, setPassword] = useState("")
@@ -78,24 +77,31 @@ export default function LoginPage() {
     <div className={styles.contenedor}>
       {EsRegistro ? (
         <div className={styles.formulario}>
-          <p className={styles.etiqueta}>Nombre</p>
+          <label className={styles.etiqueta}>Nombre</label>
           <Input onChange={onChangeNombre} placeholder={"Nombre"} value={nombre} />
-          <p className={styles.etiqueta}>Apellido</p>
+          
+          <label className={styles.etiqueta}>Apellido</label>
           <Input onChange={onChangeApellido} placeholder={"Apellido"} value={apellido} />
-          <p className={styles.etiqueta}>Email</p>
+          
+          <label className={styles.etiqueta}>Email</label>
           <Input onChange={onChangeMail} placeholder={"email"} value={mail} />
-          <p className={styles.etiqueta}>Contraseña</p>
+          
+          <label className={styles.etiqueta}>Contraseña</label>
           <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
-          <p className={styles.etiqueta}>Foto de Perfil</p>
+          
+          <label className={styles.etiqueta}>Foto de Perfil</label>
           <input onChange={onChangefoto} type={"file"} accept="image/*" />
+          
           <Button onClick={handleRegister}> Registrarse </Button>
         </div>
       ) : (
         <div className={styles.formulario}>
-          <p className={styles.etiqueta}>Email</p>
+          <label className={styles.etiqueta}>Email</label>
           <Input onChange={onChangeMail} placeholder={"email"} value={mail} />
-          <p className={styles.etiqueta}>Contraseña</p>
+          
+          <label className={styles.etiqueta}>Contraseña</label>
           <Input onChange={onChangePassword} placeholder={"contraseña"} value={password} type={"password"} />
+          
           <Button onClick={handleLogin}>Ingresar</Button>
         </div>
       )}

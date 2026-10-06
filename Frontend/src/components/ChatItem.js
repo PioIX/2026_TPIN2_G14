@@ -6,8 +6,8 @@ export default function ChatItem({ chat, onClick }) {
 
   return (
     <div onClick={() => onClick(chat)}>
-      <img src={fotoAMostrar} alt={chat.nombre} width="50" height="50" />
       <p>{chat.nombre}</p>
+      <img src={fotoAMostrar}  width="50" height="50" />
     </div>
   );
 }

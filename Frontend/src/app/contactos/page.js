@@ -13,15 +13,14 @@ export default function ContactosPage() {
   const nombreUsuario = searchParams.get("nombre")
 
   const router = useRouter()
-
   const [chats, setChats] = useState([])
 
   const cargarChats = () => {
+    if (!idUsuario) return
     fetch(`http://localhost:4000/chats/usuario/${idUsuario}`)
       .then((response) => response.json())
-      .then((data) => {
-        setChats(data)
-      })
+      .then((data) => setChats(data))
+      .catch((err) => console.error("Error al cargar chats:", err))
   }
 
   useEffect(() => {
@@ -29,7 +28,8 @@ export default function ContactosPage() {
   }, [idUsuario])
 
   const handleClickChat = (chat) => {
-    router.push(`/chat?chatId=${chat.id_chat}&id=${idUsuario}&nombre=${nombreUsuario}`)
+    const nombreDestino = chat.nombre || "Chat"
+    router.push(`/chat/${chat.id_chat}?idUsuario=${idUsuario}&nombreChat=${encodeURIComponent(nombreDestino)}`)
   }
 
   return (
@@ -43,5 +43,5 @@ export default function ContactosPage() {
 
       <ChatList chats={chats} onClickChat={handleClickChat} />
     </div>
-  );
+  )
 }
