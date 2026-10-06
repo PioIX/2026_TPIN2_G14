@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Emi/Documents/GitHub/2026_TPIN2_G14/Frontend/src/app/login/page.module.css"],"sourcesContent":[".contenedor {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  min-height: 100vh;\r\n  background-color: #f0f2f5;\r\n  font-family: Arial, sans-serif;\r\n  padding: 20px;\r\n}\r\n\r\n.formulario {\r\n  background-color: #ffffff;\r\n  padding: 30px;\r\n  border-radius: 8px;\r\n  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);\r\n  width: 100%;\r\n  max-width: 400px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 12px;\r\n}\r\n\r\n.etiqueta {\r\n  font-size: 14px;\r\n  color: #075e54;\r\n  font-weight: bold;\r\n  margin-bottom: 2px;\r\n}\r\n\r\n.cambiarModo {\r\n  margin-top: 20px;\r\n  width: 100%;\r\n  max-width: 400px;\r\n}"],"names":[],"mappings":"AAAA;;;;;;;;;;;AAWA;;;;;;;;;;;;AAYA;;;;;;;AAOA"}}]
-}
