@@ -4,3 +4,9 @@
 
 La aplicación debe permitir al usuario iniciar sesión, registrarse, ver sus conversaciones (chats), crear chats
 nuevos, ver el historial de cada chat y comunicarse en tiempo real con sus contactos.
+
+USERS EJEMPLO:
+mati@gmail.com
+mati123
+jp@gmail.com
+jp123
